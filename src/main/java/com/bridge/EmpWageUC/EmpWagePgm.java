@@ -16,7 +16,7 @@ public class EmpWagePgm {
 		if(empCheck == IS_FULLTIME)
 			empHrs=8;
 		else
-			empHrs=4;
+			empHrs=0;
 		
 		empWage = empHrs*RATE_PER_HR;
 		System.out.println("WAGE IS "+ empWage);
