@@ -1,4 +1,4 @@
-# EmpWageBuilder
+# EmpWageBuilder-Project
 
 # UC-1_Check Employee Presence<br>
 # UC-2_Calculate Daily Employee Wage<br>
