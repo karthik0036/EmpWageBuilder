@@ -7,8 +7,7 @@ public class EmpWagePgm {
 	public static final int NUM_WORKING_DAYS=20;
 	public static final int MAX_HRS_MONTH=100;
 	
-
-	public static void main(String[] args) {
+	public void EmpWageCompany1() {
 		//Variables
 		int empHrs=0,empWage=0,totalEmpHrs=0,totalWorkingDays=0,totalWage=0;
 		//Computation
@@ -33,8 +32,22 @@ public class EmpWagePgm {
 		
 		}
 		totalWage=totalEmpHrs*RATE_PER_HR;
-		System.out.println("TOTALWAGE IS "+ totalWage);
-			
+		System.out.println("TOTALWAGE of Emp working in Company1:"+ totalWage);			
+		
+		
 	}
+	
 
+	public static void main(String[] args) {
+		EmpWagePgm employeeWage = new EmpWagePgm();
+		employeeWage.EmpWageCompany1();
+	}
 }
+		
+		
+		
+		
+	
+		
+		
+			
