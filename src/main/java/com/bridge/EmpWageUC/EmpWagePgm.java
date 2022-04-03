@@ -1,30 +1,29 @@
 package com.bridge.EmpWageUC;
 
-public class EmpWagePgm {
+public class EmpWagePgm implements IEmployeeWageComputation {
 	public static final int IS_PARTIME = 1;
     public static final int IS_FULLTIME = 2;
     private int numOfCompany = 0;
-    private CompanyInfo[] companyInfoArray; ;
+    private final CompanyInfo[] companyInfoArray;
 
-    public EmpWagePgm () {
+    public EmpWagePgm() {
         companyInfoArray = new CompanyInfo[3];
     }
 
     public static void main(String[] args) {
         System.out.println("Welcome to Employee Wage Builder Program For Multiple companies");
-        EmpWagePgm  empWageBuilder = new EmpWagePgm();
+        IEmployeeWageComputation empWageBuilder = new EmpWagePgm();
         empWageBuilder.addCompanyInfo("Dmart", 20, 20, 100);
         empWageBuilder.addCompanyInfo("JIO", 25, 22, 110);
         empWageBuilder.addCompanyInfo("Airtel", 27, 26, 120);
         empWageBuilder.computeEmpWage();
     }
-
-    private void addCompanyInfo(String companyName, int empRatePerHr, int numOfWorkingDays, int maxHrsPerMonth) {
+    public void addCompanyInfo(String companyName, int empRatePerHr, int numOfWorkingDays, int maxHrsPerMonth) {
         companyInfoArray[numOfCompany] = new CompanyInfo(companyName, empRatePerHr, numOfWorkingDays, maxHrsPerMonth);
         numOfCompany++;
     }
 
-    private void computeEmpWage() {
+    public void computeEmpWage() {
         for (int i = 0; i < numOfCompany; i++) {
             companyInfoArray[i].setTotalWage(computeEmpWage(companyInfoArray[i]));
             System.out.println(companyInfoArray[i]);
@@ -37,7 +36,7 @@ public class EmpWagePgm {
         while (totalEmpHrs <= companyInfo.getMaxHrsPerMonth() && totalWorkingDays < companyInfo.getNumOfWorkingDays()) {
             totalWorkingDays++;
             int empCheck = (int) Math.floor(Math.random() * 10) % 3;
-            switch(empCheck){
+            switch (empCheck) {
                 case IS_PARTIME:
                 	empHrs=4;
                 	break;
@@ -46,7 +45,6 @@ public class EmpWagePgm {
                 	break;
                 default:
                 	empHrs=0;
-                	
             };
             totalEmpHrs += empHrs;
             empWage = empHrs * companyInfo.getEmpRatePerHr();
